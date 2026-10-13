@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animateCursorRing);
 
         // Hover expansions for interactive elements
-        const interactiveSelectors = 'a, button, .project-card, .skill-category-card, .about-card, .timeline-card, .cert-card, .contact-card-link, input, textarea';
+        const interactiveSelectors = 'a, button, .project-card, .ps-card, .ps-stat-box, .skill-category-card, .about-card, .timeline-card, .cert-card, .contact-card-link, input, textarea';
         const interactiveElements = document.querySelectorAll(interactiveSelectors);
 
         interactiveElements.forEach((elem) => {
@@ -142,9 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. 3D Card Tilt & Cursor-Following Radial Glow
     // ------------------------------------------------------------------------
     const projectCards = document.querySelectorAll('.project-card');
+    const tiltCards = document.querySelectorAll('.project-card, .ps-card');
 
     if (!isTouchDevice && !prefersReducedMotion) {
-        projectCards.forEach((card) => {
+        tiltCards.forEach((card) => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
